@@ -66,8 +66,9 @@ def app():
     for i in range(100):
         # Update progress bar value
         progress_bar.progress(i + 1)
-        # Simulate some time-consuming task (e.g., sleep)
         time.sleep(0.01)
+    
+    st.success("Image loading loading completed!")
 
 #run the app
 if __name__ == "__main__":

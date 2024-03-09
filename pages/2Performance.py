@@ -48,7 +48,7 @@ def app():
     y_train= st.session_state['y_train']
     y_test = st.session_state['y_test']
 
-        st.sidebar.subheader('Select the classifier')
+    st.sidebar.subheader('Select the classifier')
 
     # Create the selection of classifier
     clf = DecisionTreeClassifier()
