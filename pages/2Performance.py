@@ -11,6 +11,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
+import time
 
 # Define the Streamlit app
 def app():
@@ -66,6 +67,9 @@ def app():
 
     st.subheader('Performance of the ' + classifier)
 
+    # Create a progress bar object
+    progress_bar = st.progress(0, text="Running performance tests please wait...")
+
     clf.fit(X_train, y_train)
     y_test_pred = clf.predict(X_test)
 
@@ -82,6 +86,12 @@ def app():
 
     # save the clf to the session state
     st.session_state['clf'] = clf
+
+    for i in range(100):
+        # Update progress bar value
+        progress_bar.progress(i + 1)
+        time.sleep(0.01)
+    st.success("Report loading completed!")
 
 #run the app
 if __name__ == "__main__":
